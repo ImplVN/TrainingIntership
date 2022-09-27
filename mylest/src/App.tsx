@@ -50,7 +50,7 @@ function App() {
     });
     return sum;
   };
-  console.log(calculateSalary(data));
+  console.log(parseFloat(calculateSalary(data).toFixed(10)));
   return <div className="App"></div>;
 }
 
