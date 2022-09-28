@@ -45,13 +45,20 @@ function App() {
     value.map((a) => {
       if (a.subCompanies !== null) {
         sum +=
-          a.members.reduce((a, b) => a + b.salary, 0) +
-          calculateSalary(a.subCompanies);
-      } else sum += a.members.reduce((a, b) => a + b.salary, 0);
+          a.members.reduce(
+            (a, b) => Number(new Decimal(a).plus(new Decimal(b.salary))),
+            0
+          ) + calculateSalary(a.subCompanies);
+      } else
+        sum += a.members.reduce(
+          (a, b) => Number(new Decimal(a).plus(new Decimal(b.salary))),
+          0
+        );
     });
 
-    return Number(parseFloat(sum.toFixed(10)));
+    return sum;
   };
+
   console.log(calculateSalary(data));
   return <div className="App"></div>;
 }
