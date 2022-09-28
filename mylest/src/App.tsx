@@ -1,3 +1,4 @@
+import { Decimal } from "decimal.js";
 import React from "react";
 
 import "./App.css";
@@ -48,9 +49,10 @@ function App() {
           calculateSalary(a.subCompanies);
       } else sum += a.members.reduce((a, b) => a + b.salary, 0);
     });
-    return sum;
+
+    return Number(parseFloat(sum.toFixed(10)));
   };
-  console.log(parseFloat(calculateSalary(data).toFixed(10)));
+  console.log(calculateSalary(data));
   return <div className="App"></div>;
 }
 
