@@ -51,6 +51,28 @@ function App() {
     return arry;
   };
 
+  const findSalary = (value: Company[]): Person[] => {
+    let arr: Person[] = [];
+    for (let newValue of value) {
+      if (newValue.subCompanies !== null) {
+        arr.push(...newValue.members);
+        arr.push(...findSalary(newValue.subCompanies));
+      } else {
+        arr.push(...newValue.members);
+      }
+      console.log(arr);
+    }
+    return arr;
+  };
+  findSalary(data);
+
+  const findPersonMinSalary = (value: Company[]): Person => {
+    return findSalary(value).sort(function (a, b) {
+      return a.salary - b.salary;
+    })[0];
+  };
+  let rel = findPersonMinSalary(data);
+
   const calculateSalary = (value: Array<Company>): number => {
     let sum: number = 0;
     value.map((a) => {
@@ -83,6 +105,10 @@ function App() {
       <h1>
         Với nhân sự {personMaxSalary.name} có lương {personMaxSalary.salary} $
         lớn nhất
+      </h1>
+      <h1>
+        người có số lương nhỏ nhất nhỏ nhất là "{rel.name}" với số lương
+        {rel.salary}$
       </h1>
     </div>
   );
