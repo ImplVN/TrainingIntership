@@ -59,8 +59,8 @@ function App() {
     return sum;
   };
 
-  console.log(calculateSalary(data));
-  return <div className="App"></div>;
+  const sum = calculateSalary(data);
+  return <div className="App">Tổng tất cả salary: {sum}</div>;
 }
 
 export default App;
