@@ -40,6 +40,17 @@ function App() {
       ],
     },
   ];
+  const flatArray = (yourArray: Company[]): Person[] => {
+    let arry: Person[] = [];
+    yourArray.forEach((a) => {
+      if (a.subCompanies !== null) {
+        arry.push(...a.members);
+        arry.push(...flatArray(a.subCompanies));
+      } else arry.push(...a.members);
+    });
+    return arry;
+  };
+
   const calculateSalary = (value: Array<Company>): number => {
     let sum: number = 0;
     value.map((a) => {
@@ -59,8 +70,22 @@ function App() {
     return sum;
   };
 
+  const findPersonMaxSalary = (value: Array<Company>): Person => {
+    return flatArray(value).sort((a, b) => b.salary - a.salary)[0];
+  };
+
+  const personMaxSalary = findPersonMaxSalary(data);
+
   const sum = calculateSalary(data);
-  return <div className="App">Tổng tất cả salary: {sum}</div>;
+  return (
+    <div className="App">
+      <h1>Tổng tất cả salary: {sum} $</h1>
+      <h1>
+        Với nhân sự {personMaxSalary.name} có lương {personMaxSalary.salary} $
+        lớn nhất
+      </h1>
+    </div>
+  );
 }
 
 export default App;
