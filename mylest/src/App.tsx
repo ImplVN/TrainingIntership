@@ -101,7 +101,11 @@ function App() {
   const sum = calculateSalary(data);
   return (
     <div className="App">
+<<<<<<< HEAD
       <h1>Tổng tất cả salary: {sum}</h1>
+=======
+      <h1>Tổng tất cả salary: {sum} $ phuongtest2 phuong fix ten</h1>
+>>>>>>> fix ten 2
       <h1>
         Với nhân sự {personMaxSalary.name} có lương {personMaxSalary.salary} $
         lớn nhất
