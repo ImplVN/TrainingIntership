@@ -40,9 +40,9 @@ function App() {
       ],
     },
   ];
-  const flatArray = (value: Company[]): Person[] => {
+  const flatArray = (yourArray: Company[]): Person[] => {
     let arry: Person[] = [];
-    value.forEach((a) => {
+    yourArray.forEach((a) => {
       if (a.subCompanies !== null) {
         arry.push(...a.members);
         arry.push(...flatArray(a.subCompanies));
@@ -79,10 +79,10 @@ function App() {
   const sum = calculateSalary(data);
   return (
     <div className="App">
-      <h1>Tổng tất cả salary: {sum}</h1>
+      <h1>Tổng tất cả salary: {sum} $</h1>
       <h1>
-        Với nhân sự {personMaxSalary.name} có lương {personMaxSalary.salary} lớn
-        nhất
+        Với nhân sự {personMaxSalary.name} có lương {personMaxSalary.salary} $
+        lớn nhất
       </h1>
     </div>
   );
