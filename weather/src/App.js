@@ -2,7 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { fecthAsyncWeathers, getWeather } from "./redux/weather/weatherSlice";
 import { useEffect } from "react";
 import WeatherListen from "./componen/WeatherListen";
-// import { styles } from "./componen/WeatherListen";
+import { Container, Button } from "./styled/styled";
+
 const App = () => {
   const dispash = useDispatch();
   const weats = useSelector(getWeather);
@@ -18,43 +19,23 @@ const App = () => {
   else
     return (
       <div className="App">
-        {/* <div style={styles.container}>
-          <button
-            onClick={handleClick}
-            style={styles.button}
-            value={"Hanoi,vn"}
-          >
+        <Container className="btn-grup">
+          <Button className="btn" onClick={handleClick} value={"Hanoi,vn"}>
             Hanoi
-          </button>
-          <button
-            onClick={handleClick}
-            style={styles.button}
-            value={"London,uk"}
-          >
+          </Button>
+          <Button className="btn" onClick={handleClick} value={"London,uk"}>
             London
-          </button>
-          <button
-            onClick={handleClick}
-            style={styles.button}
-            value={"Sydney,au"}
-          >
+          </Button>
+          <Button className="btn" onClick={handleClick} value={"Sydney,au"}>
             Sydney
-          </button>
-          <button
-            onClick={handleClick}
-            style={styles.button}
-            value={"Tokyo,jp"}
-          >
+          </Button>
+          <Button className="btn" onClick={handleClick} value={"Tokyo,jp"}>
             Tokyo
-          </button>
-          <button
-            onClick={handleClick}
-            style={styles.button}
-            value={"Paris,fr"}
-          >
+          </Button>
+          <Button className="btn" onClick={handleClick} value={"Paris,fr"}>
             Paris
-          </button>
-        </div> */}
+          </Button>
+        </Container>
         <WeatherListen data={weats} />
       </div>
     );
