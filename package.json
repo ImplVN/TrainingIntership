@@ -1,0 +1,27 @@
+{
+  "name": "trainingintership",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ImplVN/TrainingIntership.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ImplVN/TrainingIntership/issues"
+  },
+  "homepage": "https://github.com/ImplVN/TrainingIntership#readme",
+  "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mui/icons-material": "^5.10.6",
+    "@mui/material": "^5.10.7",
+    "dayjs": "^1.11.5"
+  }
+}
