@@ -4,10 +4,10 @@ export const Apikey = "60be92b2ddf19a012433571de96eb031";
 
 export const fecthAsyncWeathers = createAsyncThunk(
   "weather / fecthAsyncWeathers",
-  async () => {
+  async (NationAndCountry) => {
     const res = await axios
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=21.028511&lon=105.804817&appid=${Apikey}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${NationAndCountry}&APPID=${Apikey}`
       )
       .catch((err) => console.log("ERROR", err));
     return res.data;
@@ -15,7 +15,7 @@ export const fecthAsyncWeathers = createAsyncThunk(
 );
 
 const initialState = {
-  weather: {},
+  weather: [],
 };
 
 const weatherSlice = createSlice({
@@ -23,10 +23,8 @@ const weatherSlice = createSlice({
   initialState,
   extraReducers: {
     [fecthAsyncWeathers.pending]: () => {
-      console.log("pending");
     },
     [fecthAsyncWeathers.fulfilled]: (state, { payload }) => {
-      console.log("Cekiuration");
       return { ...state, weather: payload };
     },
   },
