@@ -1,8 +1,10 @@
 import React from "react";
+import List from "./List";
 import Bodydow from "./Bodydow";
-import { Container, Text } from "../styled/styled";
+import { Container, Item, Text, TextF } from "../styled/styled";
+
 const WeatherListen = (props) => {
-  const { data } = props;
+  const { data, three } = props;
   const date = new Date();
 
   return (
@@ -18,8 +20,7 @@ const WeatherListen = (props) => {
         </Container>
         <Container>
           <Text className="text-space size">
-            {data?.name ? data.name : "Hanoi"} -
-            {data?.sys.country ? data?.sys.country : "VN"}
+            {data?.name} -{data?.sys.country}
           </Text>
         </Container>
       </Container>
@@ -34,6 +35,8 @@ const WeatherListen = (props) => {
         tempmax={data.main}
         tempmin={data.main}
       />
+      <TextF className="text">Wearth 5 day</TextF>
+      <List data={three.list} />
     </div>
   );
 };
