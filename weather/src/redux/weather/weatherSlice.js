@@ -13,8 +13,15 @@ export const fecthAsyncWeathers = createAsyncThunk(
     return res.data;
   }
 );
+<<<<<<< HEAD
 export const fecthAsyncWeathersLats = createAsyncThunk(
   "weather / fecthAsyncWeathersLats",
+=======
+
+
+export const fecthAsynclatlong = createAsyncThunk(
+  "weather / fecthAsynclatlong",
+>>>>>>> them 1 so component
   async (location) => {
     const res = await axios
       .get(
@@ -24,8 +31,14 @@ export const fecthAsyncWeathersLats = createAsyncThunk(
     return res.data;
   }
 );
+<<<<<<< HEAD
 export const fecthAsyncWeathersThere = createAsyncThunk(
   "weather / fecthAsyncWeathersThere",
+=======
+
+export const listweathers = createAsyncThunk(
+  "weather / listweathers",
+>>>>>>> them 1 so component
   async (location) => {
     const res = await axios
       .get(
@@ -35,9 +48,17 @@ export const fecthAsyncWeathersThere = createAsyncThunk(
     return res.data;
   }
 );
+<<<<<<< HEAD
 const initialState = {
   weather: [],
   weather3to5: [],
+=======
+
+const initialState = {
+  weather: [],
+  weatherlocation : [],
+  listwe:[]
+>>>>>>> them 1 so component
 };
 
 const weatherSlice = createSlice({
@@ -48,15 +69,29 @@ const weatherSlice = createSlice({
     [fecthAsyncWeathers.fulfilled]: (state, { payload }) => {
       return { ...state, weather: payload };
     },
+<<<<<<< HEAD
     [fecthAsyncWeathersLats.fulfilled]: (state, { payload }) => {
       return { ...state, weather: payload };
     },
     [fecthAsyncWeathersThere.fulfilled]: (state, { payload }) => {
       return { ...state, weather3to5: payload };
+=======
+    [fecthAsynclatlong.fulfilled]: (state, { payload }) => {
+      return { ...state, weatherlocation: payload };
+    },
+    [listweathers.fulfilled]: (state, { payload }) => {
+      return { ...state, listwe: payload };
+>>>>>>> them 1 so component
     },
   },
 });
 export const getWeather = (state) => state.weather.weather;
+<<<<<<< HEAD
 export const getWeatherUseLat = (state) => state.weather.weather;
 export const getWeatherUseLat3day = (state) => state.weather.weather3to5;
+=======
+export const getWeatherlocation = (state) => state.weather.weatherlocation;
+export const getlistwe = (state) => state.weather.listwe;
+
+>>>>>>> them 1 so component
 export default weatherSlice.reducer;
