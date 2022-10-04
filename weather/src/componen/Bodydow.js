@@ -4,8 +4,8 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import WbTwilightIcon from "@mui/icons-material/WbTwilight";
 import styled from "styled-components";
 import DeviceThermostatIcon from "@mui/icons-material/DeviceThermostat";
-import InvertColorsIcon from '@mui/icons-material/InvertColors';
-import AirIcon from '@mui/icons-material/Air';
+import InvertColorsIcon from "@mui/icons-material/InvertColors";
+import AirIcon from "@mui/icons-material/Air";
 const Divmain = styled.div`
   &.main {
     background-color: #2e3379;
@@ -22,10 +22,10 @@ const Cloudsor = styled.h3`
 const Maincontent = styled.div`
   &.maincontent {
     display: flex;
-    justify-content:space-around;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
-    margin:20px 0;
+    margin: 20px 0;
   }
 `;
 
@@ -34,11 +34,10 @@ const Dflex = styled.div`
     display: flex;
     align-items: center;
   }
-  &.d-flex-v2{
+  &.d-flex-v2 {
     margin-bottom: 6px;
   }
 `;
-
 
 const Dashmargin = styled.div`
   &.dshmr {
@@ -49,24 +48,17 @@ const Dflexall = styled.div`
   &.d-fex-f {
     display: flex;
     justify-content: space-between;
-   margin: auto;
-   width: 40%;
+    margin: auto;
+    width: 40%;
     align-items: center;
   }
 `;
 
-
-
 function Bodydow(props) {
   const src = "src={`http://openweathermap.org/img/wn/${icon.icon}@2x.png`}";
-  console.log(props);
   const { cloudy, data, icon, temp, feels, wind, suntime, tempmax, tempmin } =
     props;
-  console.log(data);
-
   let now = dayjs();
-
-  console.log(now.format("HH:mm"));
 
   return (
     <Divmain className="main">
@@ -89,14 +81,14 @@ function Bodydow(props) {
           </Dflex>
           <Dflex className="d-flex d-flex-v2">
             <InvertColorsIcon
-              sx={{ color: "white",marginRight: "10px" }}
+              sx={{ color: "white", marginRight: "10px" }}
               className="icon-temp"
             />
             {feels.humidity}%
           </Dflex>
           <Dflex className="d-flex d-flex-v2">
             <AirIcon
-              sx={{ color: "white",marginRight: "10px" }}
+              sx={{ color: "white", marginRight: "10px" }}
               className="icon-temp"
             />
             {wind.speed} Km/h
