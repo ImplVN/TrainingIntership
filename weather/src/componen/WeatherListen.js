@@ -1,11 +1,7 @@
 import React from "react";
 import List from "./List";
 import Bodydow from "./Bodydow";
-<<<<<<< HEAD
 import { Container, Item, Text, TextF } from "../styled/styled";
-=======
-import { Container, Text } from "../styled/styled";
->>>>>>> them 1 so component
 
 const WeatherListen = (props) => {
   const { data, three } = props;
@@ -40,7 +36,6 @@ const WeatherListen = (props) => {
         tempmin={data.main}
       />
       <TextF className="text">Wearth 5 day</TextF>
-      <List data={three.list} />
     </div>
   );
 };

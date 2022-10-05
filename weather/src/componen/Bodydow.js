@@ -4,14 +4,9 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import WbTwilightIcon from "@mui/icons-material/WbTwilight";
 import styled from "styled-components";
 import DeviceThermostatIcon from "@mui/icons-material/DeviceThermostat";
-<<<<<<< HEAD
-import InvertColorsIcon from "@mui/icons-material/InvertColors";
-import AirIcon from "@mui/icons-material/Air";
-=======
 import InvertColorsIcon from '@mui/icons-material/InvertColors';
 import AirIcon from '@mui/icons-material/Air';
 
->>>>>>> them 1 so component
 const Divmain = styled.div`
   &.main {
     background-color: #2e3379;
@@ -64,10 +59,6 @@ function Bodydow(props) {
   const src = "src={`http://openweathermap.org/img/wn/${icon.icon}@2x.png`}";
   const { cloudy, data, icon, temp, feels, wind, suntime, tempmax, tempmin } =
     props;
-<<<<<<< HEAD
-  let now = dayjs();
-
-=======
 
 
   // fetch('https://geolocation-db.com/json/')
@@ -82,7 +73,6 @@ function Bodydow(props) {
 
   let now = dayjs();
 
->>>>>>> them 1 so component
   return (
     <Divmain className="main">
       <Cloudsor className="cloudy">

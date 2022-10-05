@@ -2,57 +2,24 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fecthAsyncWeathers,
   getWeather,
-<<<<<<< HEAD
-  getWeatherUseLat3day,
-  fecthAsyncWeathersLats,
-  getWeatherUseLat,
-  fecthAsyncWeathersThere,
-} from "./redux/weather/weatherSlice";
-import { useCallback, useEffect, useState } from "react";
-=======
   fecthAsynclatlong,
   getWeatherlocation,
   getlistwe,
   listweathers,
 } from "./redux/weather/weatherSlice";
 import { useEffect, useState } from "react";
->>>>>>> them 1 so component
 import WeatherListen from "./componen/WeatherListen";
 import { Container, Button } from "./styled/styled";
 import Listwether5day from "././componen/Listwether5day";
 import styled from "styled-components";
 const App = () => {
-<<<<<<< HEAD
-=======
   const dispash = useDispatch();
   const weats = useSelector(getWeatherlocation);
   const listwetherday = useSelector(getlistwe);
->>>>>>> them 1 so component
   const [location, setLocation] = useState({
     lat: 0,
     lon: 0,
   });
-<<<<<<< HEAD
-  const weatsLatLong = useSelector(getWeatherUseLat);
-  const weats = useSelector(getWeather);
-  const weather3day = useSelector(getWeatherUseLat3day);
-  const dispash = useDispatch();
-  const getLocation = () => {
-    navigator.geolocation.getCurrentPosition((pos) => {
-      setLocation({
-        ...location,
-        lat: pos.coords.latitude,
-        lon: pos.coords.longitude,
-      });
-    });
-  };
-
-  useEffect(() => {
-    getLocation();
-  }, []);
-
-  const buttonVal = [
-=======
 
   function getlocation() {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -76,7 +43,6 @@ const App = () => {
   }, []);
 
   const arrlocation = [
->>>>>>> them 1 so component
     {
       name: "Hanoi",
       location: {
@@ -106,19 +72,6 @@ const App = () => {
       },
     },
   ];
-<<<<<<< HEAD
-  useEffect(() => {
-    dispash(fecthAsyncWeathersThere(location));
-  }, [location]);
-  useEffect(() => {
-    dispash(fecthAsyncWeathersLats(location));
-  }, [location]);
-  const handleClick = (location) => () => {
-    dispash(fecthAsyncWeathersLats(location));
-    dispash(fecthAsyncWeathersThere(location));
-  };
-
-=======
   const Mainbody = styled.div`
   color: white;
     margin: 0 40px;
@@ -138,21 +91,11 @@ const App = () => {
       dispash(fecthAsynclatlong(location));
     };
   }
->>>>>>> them 1 so component
   if (weats.length === 0) return <h1>Loadding......</h1>;
   else
     return (
       <div className="App">
         <Container className="btn-grup">
-<<<<<<< HEAD
-          {buttonVal.map((a, i) => (
-            <Button key={i} className="btn" onClick={handleClick(a.location)}>
-              {a.name}
-            </Button>
-          ))}
-        </Container>
-        <WeatherListen data={weatsLatLong} three={weather3day} />
-=======
           {arrlocation.map((a) => {
             return (
               <Button className="btn" onClick={handleClick(a.location)}>
@@ -173,7 +116,6 @@ const App = () => {
             );
           })}
         </Mainbody>
->>>>>>> them 1 so component
       </div>
     );
 };
