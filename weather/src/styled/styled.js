@@ -21,7 +21,7 @@ export const Text = styled.p`
 `;
 
 export const Button = styled.button`
-  margin-top: 20pxqq1asdytrew;
+  margin-top: 20px;
   &.btn {
     padding: 10px;
     background-color: #30307c;

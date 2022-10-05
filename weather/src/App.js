@@ -73,18 +73,15 @@ const App = () => {
     },
   ];
   const Mainbody = styled.div`
-  color: white;
+    color: white;
     margin: 0 40px;
     padding: 60px 0;
     &.main-list-itemdate {
       display: flex;
       overflow-x: auto;
-      padding:20px 40px,
-      
+      padding: 20px 40px;
     }
   `;
-
-
 
   function handleClick(location) {
     return () => {
@@ -107,7 +104,8 @@ const App = () => {
         <WeatherListen data={weats} />
         <Mainbody className="main-list-itemdate">
           {listwetherday.list?.map((a) => {
-            return (<Listwether5day
+            return (
+              <Listwether5day
                 dataa={a}
                 datenow={a.dt_txt}
                 temptb={a.main.temp}
