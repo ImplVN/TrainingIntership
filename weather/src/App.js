@@ -2,39 +2,47 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fecthAsyncWeathers,
   getWeather,
-  getWeatherUseLat3day,
-  fecthAsyncWeathersLats,
-  getWeatherUseLat,
-  fecthAsyncWeathersThere,
+  fecthAsynclatlong,
+  getWeatherlocation,
+  getlistwe,
+  listweathers,
 } from "./redux/weather/weatherSlice";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import WeatherListen from "./componen/WeatherListen";
 import { Container, Button } from "./styled/styled";
-
+import Listwether5day from "././componen/Listwether5day";
+import styled from "styled-components";
 const App = () => {
+  const dispash = useDispatch();
+  const weats = useSelector(getWeatherlocation);
+  const listwetherday = useSelector(getlistwe);
   const [location, setLocation] = useState({
     lat: 0,
     lon: 0,
   });
-  const weatsLatLong = useSelector(getWeatherUseLat);
-  const weats = useSelector(getWeather);
-  const weather3day = useSelector(getWeatherUseLat3day);
-  const dispash = useDispatch();
-  const getLocation = () => {
-    navigator.geolocation.getCurrentPosition((pos) => {
+
+  function getlocation() {
+    navigator.geolocation.getCurrentPosition(function (position) {
       setLocation({
-        ...location,
-        lat: pos.coords.latitude,
-        lon: pos.coords.longitude,
+        lat: position.coords.latitude,
+        lon: position.coords.longitude,
       });
     });
-  };
+  }
 
   useEffect(() => {
-    getLocation();
+    getlocation();
   }, []);
 
-  const buttonVal = [
+  useEffect(() => {
+    dispash(fecthAsynclatlong(location));
+  }, [location]);
+
+  useEffect(() => {
+    dispash(listweathers(location));
+  }, []);
+
+  const arrlocation = [
     {
       name: "Hanoi",
       location: {
@@ -64,29 +72,50 @@ const App = () => {
       },
     },
   ];
-  useEffect(() => {
-    dispash(fecthAsyncWeathersThere(location));
-  }, [location]);
-  useEffect(() => {
-    dispash(fecthAsyncWeathersLats(location));
-  }, [location]);
-  const handleClick = (location) => () => {
-    dispash(fecthAsyncWeathersLats(location));
-    dispash(fecthAsyncWeathersThere(location));
-  };
+  const Mainbody = styled.div`
+  color: white;
+    margin: 0 40px;
+    padding: 60px 0;
+    &.main-list-itemdate {
+      display: flex;
+      overflow-x: auto;
+      padding:20px 40px,
+      
+    }
+  `;
 
+
+
+  function handleClick(location) {
+    return () => {
+      dispash(fecthAsynclatlong(location));
+    };
+  }
   if (weats.length === 0) return <h1>Loadding......</h1>;
   else
     return (
       <div className="App">
         <Container className="btn-grup">
-          {buttonVal.map((a, i) => (
-            <Button key={i} className="btn" onClick={handleClick(a.location)}>
-              {a.name}
-            </Button>
-          ))}
+          {arrlocation.map((a) => {
+            return (
+              <Button className="btn" onClick={handleClick(a.location)}>
+                {a.name}
+              </Button>
+            );
+          })}
         </Container>
-        <WeatherListen data={weatsLatLong} three={weather3day} />
+        <WeatherListen data={weats} />
+        <Mainbody className="main-list-itemdate">
+          {listwetherday.list?.map((a) => {
+            return (<Listwether5day
+                dataa={a}
+                datenow={a.dt_txt}
+                temptb={a.main.temp}
+                icon={a.weather[0]}
+              />
+            );
+          })}
+        </Mainbody>
       </div>
     );
 };

@@ -13,8 +13,10 @@ export const fecthAsyncWeathers = createAsyncThunk(
     return res.data;
   }
 );
-export const fecthAsyncWeathersLats = createAsyncThunk(
-  "weather / fecthAsyncWeathersLats",
+
+
+export const fecthAsynclatlong = createAsyncThunk(
+  "weather / fecthAsynclatlong",
   async (location) => {
     const res = await axios
       .get(
@@ -24,8 +26,9 @@ export const fecthAsyncWeathersLats = createAsyncThunk(
     return res.data;
   }
 );
-export const fecthAsyncWeathersThere = createAsyncThunk(
-  "weather / fecthAsyncWeathersThere",
+
+export const listweathers = createAsyncThunk(
+  "weather / listweathers",
   async (location) => {
     const res = await axios
       .get(
@@ -35,9 +38,11 @@ export const fecthAsyncWeathersThere = createAsyncThunk(
     return res.data;
   }
 );
+
 const initialState = {
   weather: [],
-  weather3to5: [],
+  weatherlocation : [],
+  listwe:[]
 };
 
 const weatherSlice = createSlice({
@@ -48,15 +53,16 @@ const weatherSlice = createSlice({
     [fecthAsyncWeathers.fulfilled]: (state, { payload }) => {
       return { ...state, weather: payload };
     },
-    [fecthAsyncWeathersLats.fulfilled]: (state, { payload }) => {
-      return { ...state, weather: payload };
+    [fecthAsynclatlong.fulfilled]: (state, { payload }) => {
+      return { ...state, weatherlocation: payload };
     },
-    [fecthAsyncWeathersThere.fulfilled]: (state, { payload }) => {
-      return { ...state, weather3to5: payload };
+    [listweathers.fulfilled]: (state, { payload }) => {
+      return { ...state, listwe: payload };
     },
   },
 });
 export const getWeather = (state) => state.weather.weather;
-export const getWeatherUseLat = (state) => state.weather.weather;
-export const getWeatherUseLat3day = (state) => state.weather.weather3to5;
+export const getWeatherlocation = (state) => state.weather.weatherlocation;
+export const getlistwe = (state) => state.weather.listwe;
+
 export default weatherSlice.reducer;

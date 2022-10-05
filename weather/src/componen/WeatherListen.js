@@ -36,7 +36,6 @@ const WeatherListen = (props) => {
         tempmin={data.main}
       />
       <TextF className="text">Wearth 5 day</TextF>
-      <List data={three.list} />
     </div>
   );
 };
