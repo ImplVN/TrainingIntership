@@ -18,7 +18,7 @@ const App = () => {
     lat: 0,
     lon: 0,
   });
-
+  console.log(weats);
   function getlocation() {
     navigator.geolocation.getCurrentPosition(function (position) {
       setLocation({
