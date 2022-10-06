@@ -18,12 +18,6 @@
 .env.test.local
 .env.production.local
 
-<<<<<<< HEAD
-npm-debug.log
-yarn-debug.log
-yarn-error.log
-=======
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
->>>>>>> 5ab9153970279734eda54beed98f402c021b4d70
