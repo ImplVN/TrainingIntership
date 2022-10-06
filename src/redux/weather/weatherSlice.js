@@ -14,7 +14,6 @@ export const fecthAsyncWeathers = createAsyncThunk(
   }
 );
 
-
 export const fecthAsynclatlong = createAsyncThunk(
   "weather / fecthAsynclatlong",
   async (location) => {
@@ -41,8 +40,8 @@ export const listweathers = createAsyncThunk(
 
 const initialState = {
   weather: [],
-  weatherlocation : [],
-  listwe:[]
+  weatherlocation: [],
+  listwe: [],
 };
 
 const weatherSlice = createSlice({
