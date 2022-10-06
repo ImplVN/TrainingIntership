@@ -4,8 +4,8 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import WbTwilightIcon from "@mui/icons-material/WbTwilight";
 import styled from "styled-components";
 import DeviceThermostatIcon from "@mui/icons-material/DeviceThermostat";
-import InvertColorsIcon from '@mui/icons-material/InvertColors';
-import AirIcon from '@mui/icons-material/Air';
+import InvertColorsIcon from "@mui/icons-material/InvertColors";
+import AirIcon from "@mui/icons-material/Air";
 
 const Divmain = styled.div`
   &.main {
@@ -60,14 +60,13 @@ function Bodydow(props) {
   const { cloudy, data, icon, temp, feels, wind, suntime, tempmax, tempmin } =
     props;
 
-
   // fetch('https://geolocation-db.com/json/')
   // .then((response) => response.json())
   // .then((ac) => <Locall loca = {ac} />);
-  
+
   // function Locall({loca}){
   //   console.log(loca);
-   
+
   //   return <>a</>
   // }
 
@@ -131,7 +130,6 @@ function Bodydow(props) {
           <div>{(tempmin.temp_min - 273).toFixed(0)}°C</div>
         </Dflex>
       </Dflexall>
-
     </Divmain>
   );
 }
