@@ -74,6 +74,7 @@ function App() {
     <Main className="main">
       <Mainbtn>
         {arrayLocation.map((a, i) => {
+          console.log(a.loca);
           return (
             <Button onClick={() => handleclik(a.loca)} key={i}>
               {a.name}
