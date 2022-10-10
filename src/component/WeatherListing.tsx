@@ -33,7 +33,8 @@ const WeatherListing = (props: Props): JSX.Element => {
       <Headweather className="date-country date-country-2">
         <div>
           <img
-            src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt='img weather'
+            src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+            alt="img weather"
           />
         </div>
         <Texth1>{(weather.main.temp - 273).toFixed(0)}°C</Texth1>
