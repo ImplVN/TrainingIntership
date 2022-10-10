@@ -55,10 +55,10 @@ export const Weather5DayItem = styled.div`
   text-align: center;
 `;
 
-export const Text_h1 = styled.h1`
+export const Texth1 = styled.h1`
   margin: 0 20px;
 `;
-export const Main_btn = styled.div`
+export const Mainbtn = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
