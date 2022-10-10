@@ -63,7 +63,7 @@ function App() {
   useEffect(() => {
     dispatch(fecthAsyncWeathers(local));
     dispatch(listweathers(local));
-  }, [local, dispatch]);
+  }, [local,dispatch]);
 
   function handleclik(datta: Loca_tion) {
     dispatch(listweathers(datta));
