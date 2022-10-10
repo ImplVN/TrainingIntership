@@ -12,7 +12,7 @@ const WeatherListDay = (): JSX.Element => {
         return (
           <Weather5DayItem key={a.dt_txt}>
             <div>{a.dt_txt}</div>
-            <img src={src} />
+            <img src={src} alt='img weather'/>
             <div>{(a.main.temp - 273).toFixed(0)}°C</div>
           </Weather5DayItem>
         );

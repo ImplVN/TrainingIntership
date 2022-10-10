@@ -5,7 +5,7 @@ import OpacityIcon from "@mui/icons-material/Opacity";
 import AirIcon from "@mui/icons-material/Air";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import WbTwilightIcon from "@mui/icons-material/WbTwilight";
-import { Headweather, Dflex, Colum, Text_h1 } from "../CpnCSS.css/mainCss";
+import { Headweather, Dflex, Colum, Texth1 } from "../CpnCSS.css/mainCss";
 interface Props {
   weather: WEATHER;
 }
@@ -18,7 +18,7 @@ const WeatherListing = (props: Props): JSX.Element => {
     <div>
       <Colum>
         <div>
-          Thứ {date.getDay() + 1 == 1 ? "CN" : date.getDay() + 1}
+          Thứ {date.getDay() + 1 === 1 ? "CN" : date.getDay() + 1}
           {date.getDate()}-{date.getMonth() + 1}-{date.getFullYear()} | Local
           time : {date.getHours()}:{date.getMinutes()}
           {date.getHours() > 12 && date.getHours() <= 23 ? "PM" : "AM"}
@@ -33,10 +33,10 @@ const WeatherListing = (props: Props): JSX.Element => {
       <Headweather className="date-country date-country-2">
         <div>
           <img
-            src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+            src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt='img weather'
           />
         </div>
-        <Text_h1>{(weather.main.temp - 273).toFixed(0)}°C</Text_h1>
+        <Texth1>{(weather.main.temp - 273).toFixed(0)}°C</Texth1>
         <div>
           <div>
             <DeviceThermostatIcon />

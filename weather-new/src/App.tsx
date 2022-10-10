@@ -5,7 +5,7 @@ import "./App.css";
 import WeatherListDay from "./component/WeatherListDay";
 import { Loca_tion, TYPE_BTN_DATA } from "./interface/type";
 import WeatherListing from "./component/WeatherListing";
-import { Main, Main_btn, Button } from "./CpnCSS.css/mainCss";
+import { Main, Mainbtn, Button } from "./CpnCSS.css/mainCss";
 
 function App() {
   const arrayLocation: TYPE_BTN_DATA[] = [
@@ -63,7 +63,7 @@ function App() {
   useEffect(() => {
     dispatch(fecthAsyncWeathers(local));
     dispatch(listweathers(local));
-  }, [local]);
+  }, [local,dispatch]);
 
   function handleclik(datta: Loca_tion) {
     dispatch(listweathers(datta));
@@ -72,7 +72,7 @@ function App() {
   if (weather === null) return <h1>Loadding...</h1>;
   return (
     <Main className="main">
-      <Main_btn>
+      <Mainbtn>
         {arrayLocation.map((a, i) => {
           return (
             <Button onClick={() => handleclik(a.loca)} key={i}>
@@ -80,7 +80,7 @@ function App() {
             </Button>
           );
         })}
-      </Main_btn>
+      </Mainbtn>
       <WeatherListing weather={weather} />
       <WeatherListDay />
     </Main>
