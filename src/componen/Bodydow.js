@@ -60,16 +60,6 @@ function Bodydow(props) {
   const { cloudy, data, icon, temp, feels, wind, suntime, tempmax, tempmin } =
     props;
 
-  // fetch('https://geolocation-db.com/json/')
-  // .then((response) => response.json())
-  // .then((ac) => <Locall loca = {ac} />);
-
-  // function Locall({loca}){
-  //   console.log(loca);
-
-  //   return <>a</>
-  // }
-
   let now = dayjs();
 
   return (
